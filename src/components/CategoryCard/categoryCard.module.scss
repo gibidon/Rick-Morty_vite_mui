@@ -1,0 +1,18 @@
+.card {
+  // border: 1px solid rgb(77, 12, 102);
+
+  object-fit: cover;
+  max-width: 350px;
+
+  img {
+    border-radius: 8px;
+  }
+}
+
+.card:hover {
+  opacity: 0.85;
+}
+
+.title {
+  font-size: 26px;
+}

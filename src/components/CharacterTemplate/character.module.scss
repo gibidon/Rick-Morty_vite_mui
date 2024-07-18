@@ -1,0 +1,20 @@
+.character {
+  border: 1px solid rgb(64, 12, 88);
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  -webkit-box-shadow: 0px 0px 21px 3px rgba(6, 11, 15, 0.29);
+  -moz-box-shadow: 0px 0px 21px 3px rgba(6, 11, 15, 0.29);
+  box-shadow: 0px 0px 21px 3px rgba(6, 11, 15, 0.29);
+  z-index: 20;
+  color: inherit;
+
+  line-height: 1.5rem;
+  font-size: 20px;
+}
+
+.character:hover {
+  border-color: rgb(107, 20, 148);
+  -webkit-box-shadow: -1px 0px 8px 7px rgba(13, 14, 15, 0.2);
+  -moz-box-shadow: -1px 0px 8px 7px rgba(13, 14, 15, 0.2);
+  box-shadow: -1px 0px 8px 7px rgba(13, 14, 15, 0.2);
+}
