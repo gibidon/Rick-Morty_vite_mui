@@ -6,7 +6,7 @@ import { EpisodeTemplate } from './EpisodeTemplate/EpisodeTemplate'
 import { Footer } from './Footer/Footer'
 import { LocationTemplate } from './LocationTemplate/LocationTemplate'
 import { NavPanel } from './NavPanel/NavPanel'
-import { MainLayout } from './MainLayout'
+import { MainLayout } from '../layouts/MainLayout/MainLayout'
 
 export {
   AuthStatus,

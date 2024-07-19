@@ -1,7 +1,7 @@
-import { Home } from './Home'
-import { Login } from './Login'
-import { PrivatePage } from './PrivatePage'
-import { NotFound } from './NotFound'
-import { MainLayout } from '../components'
+import { Home } from './Home/Home.tsx'
+import { Login } from './Login/Login.tsx'
+import { PrivatePage } from './PrivatePage/PrivatePage.tsx'
+import { NotFound } from './NotFound/NotFound.tsx'
+import { MainLayout } from '../components/index.ts'
 
-export { Home as HomePage, Login, PrivatePage, NotFound, MainLayout }
+export { Home, Login, PrivatePage, NotFound, MainLayout }

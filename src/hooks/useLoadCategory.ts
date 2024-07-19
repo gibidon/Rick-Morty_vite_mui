@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import { BASE_URL } from '../constants/constants'
 import { AllCategoryType, TCategoryName } from '../types/types'
 
-export function useLoadCategory(category: TCategoryName, page: number) {
+export function useLoadCategory(
+  category: TCategoryName = 'character',
+  page: number,
+) {
   const [items, setItems] = useState<AllCategoryType[]>([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)

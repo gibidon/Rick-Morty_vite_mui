@@ -1,8 +1,8 @@
 import { useState, useRef, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { TCategoryName, AllCategoryType } from '../types/types'
-import { ItemTemplate } from './ItemTemplate'
-import { useLoadCategory } from '../hooks/useLoadCategory'
+import { TCategoryName, AllCategoryType } from '../../types/types'
+import { ItemTemplate } from '../../components/ItemTemplate/ItemTemplate'
+import { useLoadCategory } from '../../hooks/useLoadCategory'
 import * as styles from './category.module.scss'
 
 export const CategoryPage = () => {

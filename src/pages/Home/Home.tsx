@@ -1,4 +1,4 @@
-import { CategoryCard } from '../components'
+import { CategoryCard } from '../../components'
 import * as styles from './home.module.scss'
 
 export const Home = () => {

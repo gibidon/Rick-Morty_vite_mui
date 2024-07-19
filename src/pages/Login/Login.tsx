@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
-import { useAuth } from '../hooks/useAuth'
-import { TUser } from '../contexts/AuthProvider'
+import { useAuth } from '../../hooks/useAuth'
+import { TUser } from '../../contexts/AuthProvider'
 import { useNavigate, useLocation } from 'react-router-dom'
 import * as styles from './login.module.scss'
 

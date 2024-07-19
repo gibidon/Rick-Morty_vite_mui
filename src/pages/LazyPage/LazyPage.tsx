@@ -1,17 +1,20 @@
 import React, { Suspense } from 'react'
-import { PAGE_NAMES } from './PageNames.ts'
+import { PAGE_NAMES } from '../PageNames.ts'
 
 function extractComponentByName(
   pageName: PAGE_NAMES,
 ): React.ExoticComponent<any> {
   return React.lazy(() =>
-    import(`./${pageName}`).then(module => ({ default: module[pageName] })),
+    import(`../../pages/${pageName}`).then(module => ({
+      default: module[pageName],
+    })),
   )
 }
 
 export function LazyPage<T extends { name: PAGE_NAMES }>(props: T) {
   //TODO
   const Component = extractComponentByName(props.name)
+  console.log('comp loaded ', Component)
 
   return (
     <Suspense fallback="Loading..">
