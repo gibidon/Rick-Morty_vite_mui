@@ -26,11 +26,11 @@ export const NavPanel = () => {
             <NavLink to="/locations">Locations</NavLink>
           </li> */}
           <li>
-            <NavLink to="/login">login page</NavLink>
+            <NavLink to="/login">Login page</NavLink>
           </li>
-          <NavLink to="/category/character">to characters</NavLink>
-          <NavLink to="/category/location">to locations</NavLink>
-          <NavLink to="/category/episode">to episodes</NavLink>
+          <NavLink to="/category/character">Characters</NavLink>
+          <NavLink to="/category/location">Locations</NavLink>
+          <NavLink to="/category/episode">Episodes</NavLink>
           {/* <li>
             <NavLink to="/non-exist">Non-exist</NavLink>
           </li> */}

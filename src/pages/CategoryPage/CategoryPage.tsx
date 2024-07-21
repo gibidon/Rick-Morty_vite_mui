@@ -5,12 +5,15 @@ import { ItemTemplate } from '../../components/ItemTemplate/ItemTemplate'
 import { useLoadCategory } from '../../hooks/useLoadCategory'
 import * as styles from './category.module.scss'
 
+import { Button, Box } from '@mui/material'
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
+import { theme } from '../../muiThemes/theme'
+
 export const CategoryPage = () => {
   const { category } = useParams<{ category: TCategoryName }>()
   const [page, setPage] = useState(1)
   const { items, isLoading, error, hasMore } = useLoadCategory(category, page)
 
-  console.log('category on category psge:', category)
   const observer = useRef<IntersectionObserver | null>()
 
   const lastNodeRef = useCallback(
@@ -36,29 +39,39 @@ export const CategoryPage = () => {
   const elems = items?.map((item: AllCategoryType, index) => {
     if (items.length - 1 === index + 1) {
       return (
-        <div ref={lastNodeRef} key={index}>
+        <Grid2 sm={2} lg={3} ref={lastNodeRef} key={index}>
           <ItemTemplate key={item.id} item={item} category={category} />
-        </div>
+        </Grid2>
       )
     } else {
       return (
-        <div key={index}>
+        <Grid2 sm={2} lg={3} key={index}>
           <ItemTemplate item={item} category={category} />
-        </div>
+        </Grid2>
       )
     }
   })
 
   return (
     <div>
-      {isLoading && <div>Loading..</div>}
-      <div className={styles.layout}>{elems}</div>
       {hasMore && (
-        <div>
-          <button onClick={() => setPage(page + 1)}>Next page</button>
-        </div>
+        <Button
+          variant="contained"
+          size="large"
+          onClick={() => setPage(page + 1)}
+        >
+          Load more
+        </Button>
       )}
-      {error && <span>Error: {error}</span>}
+      {isLoading && <Box>Loading..</Box>}
+      {error && (
+        <Box sx={{ color: theme.palette.error.dark }}>Error: {error}</Box>
+      )}
+
+      <Grid2 container spacing={3}>
+        {elems}
+      </Grid2>
+      {/* <div className={styles.layout}>{elems}</div> */}
     </div>
   )
 }

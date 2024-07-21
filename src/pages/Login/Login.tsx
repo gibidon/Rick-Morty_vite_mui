@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { TUser } from '../../contexts/AuthProvider'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { Box, Button, Input } from '@mui/material'
 import * as styles from './login.module.scss'
 
 export const Login = () => {
@@ -25,7 +26,7 @@ export const Login = () => {
     <form>
       <h1>Please enter login</h1>
       <label htmlFor="login" />
-      <input
+      <Input
         id="login"
         name="login"
         type="text"
@@ -33,8 +34,7 @@ export const Login = () => {
         className={styles.login_input}
         onChange={handleLoginInput}
       />
-      <button
-        className={styles.loginBtn}
+      <Button
         onClick={() =>
           auth.signin(login, () => {
             navigate(from, { replace: true })
@@ -42,7 +42,7 @@ export const Login = () => {
         }
       >
         Log in
-      </button>
+      </Button>
     </form>
   )
 }

@@ -9,7 +9,11 @@
     }
   ],
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "@components/*": ["src/components"] }
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@pages/*": ["pages/*"]
+    }
   }
 }
