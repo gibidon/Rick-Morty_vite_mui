@@ -37,38 +37,38 @@ export function App() {
         <NavPanel />
         <AuthStatus />
 
-        {/* <ErrorBoundary> */}
-        <Routes>
-          <Route path={INTERNAL_PATHS.home} index element={<Home />} />
-          <Route
-            path={INTERNAL_PATHS.login}
-            element={
-              <Suspense fallback="Loading login page..">
-                <Login />
-              </Suspense>
-            }
-          />
+        <ErrorBoundary>
+          <Routes>
+            <Route path={INTERNAL_PATHS.home} index element={<Home />} />
+            <Route
+              path={INTERNAL_PATHS.login}
+              element={
+                <Suspense fallback="Loading login page..">
+                  <Login />
+                </Suspense>
+              }
+            />
 
-          <Route
-            path={INTERNAL_PATHS.category}
-            element={
-              <PrivatePage>
-                <CategoryLayout />
-              </PrivatePage>
-            }
-          >
             <Route
-              path={INTERNAL_PATHS.specificCategory}
-              element={<CategoryPage />}
-            />
-            <Route
-              path={INTERNAL_PATHS.specificCategoryElement}
-              element={<DetailedPage />}
-            />
-          </Route>
-          <Route path={INTERNAL_PATHS.notFound} element={<NotFound />} />
-        </Routes>
-        {/* </ErrorBoundary> */}
+              path={INTERNAL_PATHS.category}
+              element={
+                <PrivatePage>
+                  <CategoryLayout />
+                </PrivatePage>
+              }
+            >
+              <Route
+                path={INTERNAL_PATHS.specificCategory}
+                element={<CategoryPage />}
+              />
+              <Route
+                path={INTERNAL_PATHS.specificCategoryElement}
+                element={<DetailedPage />}
+              />
+            </Route>
+            <Route path={INTERNAL_PATHS.notFound} element={<NotFound />} />
+          </Routes>
+        </ErrorBoundary>
 
         <Footer />
       </AuthProvider>

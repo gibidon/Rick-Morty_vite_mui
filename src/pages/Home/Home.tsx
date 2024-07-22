@@ -1,13 +1,16 @@
 import { Suspense } from 'react'
 import { CategoryCard } from '../../components'
 import { Container } from '@mui/material'
+import { Box } from '@mui/material'
 import * as styles from './home.module.scss'
 import { Outlet } from 'react-router-dom'
 
 export const Home = () => {
   return (
     <Container maxWidth="lg">
-      <h1 className={styles.title}>Select the category:</h1>
+      <Box sx={{ display: 'flex', justifyContent: 'center', fontSize: '32px' }}>
+        Select the category:
+      </Box>
 
       <div className={styles.mainLayout}>
         <CategoryCard

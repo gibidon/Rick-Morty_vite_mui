@@ -2,8 +2,17 @@ import { ChangeEvent, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { TUser } from '../../contexts/AuthProvider'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Box, Button, Input } from '@mui/material'
-import * as styles from './login.module.scss'
+import { Box, Button, Container, Input, Typography } from '@mui/material'
+import { styled } from '@mui/material'
+
+const InputContainer = styled(Container)({
+  display: 'flex',
+  justifyContent: 'center',
+  border: '1px solid orange',
+  borderRadius: '8px',
+  maxWidth: '1078px',
+  padding: '10px 6px',
+})
 
 export const Login = () => {
   const [login, setLogin] = useState<TUser>('')
@@ -23,26 +32,29 @@ export const Login = () => {
   }
 
   return (
-    <form>
-      <h1>Please enter login</h1>
-      <label htmlFor="login" />
-      <Input
-        id="login"
-        name="login"
-        type="text"
-        placeholder="enter login"
-        className={styles.login_input}
-        onChange={handleLoginInput}
-      />
-      <Button
-        onClick={() =>
-          auth.signin(login, () => {
-            navigate(from, { replace: true })
-          })
-        }
-      >
-        Log in
-      </Button>
-    </form>
+    <Box>
+      <InputContainer>
+        <form
+          onSubmit={() =>
+            auth.signin(login, () => {
+              navigate(from, { replace: true })
+            })
+          }
+        >
+          <Typography sx={{ fontSize: '28px' }}>Please log in</Typography>
+          <label htmlFor="login" />
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Input
+              id="login"
+              name="login"
+              type="text"
+              placeholder="login"
+              onChange={handleLoginInput}
+            />
+            <Button type="submit">Log in</Button>
+          </Box>
+        </form>
+      </InputContainer>
+    </Box>
   )
 }

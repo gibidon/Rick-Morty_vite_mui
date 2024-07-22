@@ -21,9 +21,10 @@ export const theme = createTheme({
     MuiInput: {
       styleOverrides: {
         root: {
-          padding: '12 8px',
-          backgroundColor: 'lightgray',
-          borderRadius: '8px',
+          padding: '12px 8px',
+          borderRadius: '4px',
+          backgroundColor: 'white',
+          fontWeight: 600,
         },
       },
     },
@@ -32,13 +33,7 @@ export const theme = createTheme({
     background: {
       paper: '#fff',
     },
-
-    // text: {
-    //   primary: '#173A5E',
-    //   secondary: '#46505A',
-    // },
-
-    secondary: { main: blue[500], dark: blue[700] },
+    secondary: { main: deepOrange[500], dark: deepOrange[700] },
     error: { main: red[500], dark: red[700] },
   },
 })

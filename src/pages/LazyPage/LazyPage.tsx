@@ -14,7 +14,6 @@ function extractComponentByName(
 export function LazyPage<T extends { name: PAGE_NAMES }>(props: T) {
   //TODO
   const Component = extractComponentByName(props.name)
-  console.log('comp loaded ', Component)
 
   return (
     <Suspense fallback="Loading..">

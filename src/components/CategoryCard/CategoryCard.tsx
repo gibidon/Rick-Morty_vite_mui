@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { theme } from '../../muiThemes/theme'
 import * as styles from './categoryCard.module.scss'
 
 interface ICategoryProps {
