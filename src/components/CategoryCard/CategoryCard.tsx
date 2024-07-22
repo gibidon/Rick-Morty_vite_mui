@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { styled } from '@mui/material/styles'
 import * as styles from './categoryCard.module.scss'
 
 interface ICategoryProps {
@@ -6,9 +7,7 @@ interface ICategoryProps {
   imageUrl: string
 }
 
-export const CategoryCard = ({ categoryName, imageUrl }: ICategoryProps) => {
-  console.log(categoryName, imageUrl)
-
+const CategoryCardComponent = ({ categoryName, imageUrl }: ICategoryProps) => {
   return (
     <Link to={`/category/${categoryName}`}>
       <div className={styles.card}>
@@ -18,3 +17,7 @@ export const CategoryCard = ({ categoryName, imageUrl }: ICategoryProps) => {
     </Link>
   )
 }
+
+export const CategoryCard = styled(CategoryCardComponent)`
+  backgroundcolor: 'white';
+`

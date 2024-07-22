@@ -1,5 +1,6 @@
 import { useAuth } from '../../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material'
 import * as styles from './authStatus.module.scss'
 
 export const AuthStatus = () => {
@@ -18,9 +19,9 @@ export const AuthStatus = () => {
     <>
       <p className={styles.login}>Your login: {auth.user}</p>
       <p>
-        <button className={styles.logoutBtn} onClick={handleSignout}>
+        <Button className={styles.logoutBtn} onClick={handleSignout}>
           Log out
-        </button>
+        </Button>
       </p>
     </>
   )

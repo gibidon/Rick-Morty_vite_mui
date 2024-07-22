@@ -1,7 +1,3 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,11 +5,13 @@
 }
 
 body {
-  /* height: 100vh; */
   background: rgb(128, 62, 91);
-  background: radial-gradient(circle, rgba(128, 62, 91, 1) 0%, rgba(23, 31, 60, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(128, 62, 91, 1) 0%,
+    rgba(23, 31, 60, 1) 100%
+  );
   z-index: 0;
-  /* font-family: 'WubbaLubbaDubDub'; */
   color: white;
 }
 

@@ -1,10 +1,16 @@
-import { CategoryCard } from '../components'
+import { Suspense } from 'react'
+import { CategoryCard } from '../../components'
+import { Container } from '@mui/material'
+import { Box } from '@mui/material'
 import * as styles from './home.module.scss'
+import { Outlet } from 'react-router-dom'
 
 export const Home = () => {
   return (
-    <>
-      <h1 className={styles.title}>Select the category:</h1>
+    <Container maxWidth="lg">
+      <Box sx={{ display: 'flex', justifyContent: 'center', fontSize: '32px' }}>
+        Select the category:
+      </Box>
 
       <div className={styles.mainLayout}>
         <CategoryCard
@@ -20,6 +26,9 @@ export const Home = () => {
           imageUrl="https://i.pinimg.com/736x/43/45/04/434504fdedcbb85c95b8ccdccee7421a.jpg"
         />
       </div>
-    </>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </Container>
   )
 }
