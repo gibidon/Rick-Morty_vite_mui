@@ -12,10 +12,12 @@ interface IAuthContext {
   signout: (callback: Function) => void
 }
 
-export const AuthContext = createContext<IAuthContext>(null)
+const initialAuthContext:IAuthContext = {user:'',signin:()=>{},signout:()=>{}}
+
+export const AuthContext = createContext<IAuthContext>(initialAuthContext)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<TUser>(null)
+  const [user, setUser] = useState<TUser>('')
 
   const signin = (newUser: TUser, callback: Function) => {
     setUser(newUser)
@@ -23,7 +25,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   const signout = (callback: Function) => {
-    setUser(null)
+    setUser('')
     callback()
   }
 
