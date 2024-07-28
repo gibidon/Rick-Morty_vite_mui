@@ -7,17 +7,23 @@ interface AuthProviderProps {
 }
 
 interface IAuthContext {
-  user: TUser
-  signin: (newUser: TUser, callback: Function) => void
+  user: string | null
+  signin: (newUser: string, callback: Function) => void
   signout: (callback: Function) => void
 }
 
-export const AuthContext = createContext<IAuthContext>(null)
+const initialAuthContext: IAuthContext = {
+  user: null,
+  signin: () => {},
+  signout: () => {},
+}
+
+export const AuthContext = createContext(initialAuthContext)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<TUser>(null)
+  const [user, setUser] = useState<string | null>(null)
 
-  const signin = (newUser: TUser, callback: Function) => {
+  const signin = (newUser: string, callback: Function) => {
     setUser(newUser)
     callback()
   }
@@ -29,5 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const contextValue = { user, signin, signout }
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  )
 }

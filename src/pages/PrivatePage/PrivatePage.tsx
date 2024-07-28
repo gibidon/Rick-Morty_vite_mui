@@ -9,6 +9,8 @@ export const PrivatePage = ({ children }: PrivatePageProps) => {
   const auth = useAuth()
   const location = useLocation()
 
+  console.log('current auth: ', auth)
+
   if (auth.user === null) {
     return <Navigate to="/login" state={{ from: location.pathname }} replace />
   }
